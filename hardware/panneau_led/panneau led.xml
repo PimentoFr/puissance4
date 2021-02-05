@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>G:\Stream-contenu\07-Puissance 4\panneau led\panneau led\panneau led.sch</source>
+    <date>09/01/2021 18:58:31</date>
+    <tool>Eeschema (5.1.6)-1</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>panneau led.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="C1">
+      <value>100nF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://datasheet.lcsc.com/szlcsc/Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf</datasheet>
+      <fields>
+        <field name="lcsc">C1525</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FF9F7DA</tstamp>
+    </comp>
+    <comp ref="D1">
+      <value>WS2812B</value>
+      <footprint>LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm</footprint>
+      <datasheet>https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf</datasheet>
+      <fields>
+        <field name="lcsc">C114586</field>
+      </fields>
+      <libsource lib="LED" part="WS2812B" description="RGB LED with integrated controller"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FF9DCF5</tstamp>
+    </comp>
+    <comp ref="C2">
+      <value>100nF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://datasheet.lcsc.com/szlcsc/Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf</datasheet>
+      <fields>
+        <field name="lcsc">C1525</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFAA50F</tstamp>
+    </comp>
+    <comp ref="D2">
+      <value>WS2812B</value>
+      <footprint>LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm</footprint>
+      <datasheet>https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf</datasheet>
+      <fields>
+        <field name="lcsc">C114586</field>
+      </fields>
+      <libsource lib="LED" part="WS2812B" description="RGB LED with integrated controller"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFAA51F</tstamp>
+    </comp>
+    <comp ref="C3">
+      <value>100nF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://datasheet.lcsc.com/szlcsc/Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf</datasheet>
+      <fields>
+        <field name="lcsc">C1525</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFADE5D</tstamp>
+    </comp>
+    <comp ref="D3">
+      <value>WS2812B</value>
+      <footprint>LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm</footprint>
+      <datasheet>https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf</datasheet>
+      <fields>
+        <field name="lcsc">C114586</field>
+      </fields>
+      <libsource lib="LED" part="WS2812B" description="RGB LED with integrated controller"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFADE6D</tstamp>
+    </comp>
+    <comp ref="C4">
+      <value>100nF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://datasheet.lcsc.com/szlcsc/Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf</datasheet>
+      <fields>
+        <field name="lcsc">C1525</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFBAB3B</tstamp>
+    </comp>
+    <comp ref="D4">
+      <value>WS2812B</value>
+      <footprint>LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm</footprint>
+      <datasheet>https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf</datasheet>
+      <fields>
+        <field name="lcsc">C114586</field>
+      </fields>
+      <libsource lib="LED" part="WS2812B" description="RGB LED with integrated controller"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFBAB4B</tstamp>
+    </comp>
+    <comp ref="C5">
+      <value>100nF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://datasheet.lcsc.com/szlcsc/Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf</datasheet>
+      <fields>
+        <field name="lcsc">C1525</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFBAB61</tstamp>
+    </comp>
+    <comp ref="D5">
+      <value>WS2812B</value>
+      <footprint>LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm</footprint>
+      <datasheet>https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf</datasheet>
+      <fields>
+        <field name="lcsc">C114586</field>
+      </fields>
+      <libsource lib="LED" part="WS2812B" description="RGB LED with integrated controller"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFBAB71</tstamp>
+    </comp>
+    <comp ref="C6">
+      <value>100nF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://datasheet.lcsc.com/szlcsc/Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf</datasheet>
+      <fields>
+        <field name="lcsc">C1525</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFBAB87</tstamp>
+    </comp>
+    <comp ref="D6">
+      <value>WS2812B</value>
+      <footprint>LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm</footprint>
+      <datasheet>https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf</datasheet>
+      <fields>
+        <field name="lcsc">C114586</field>
+      </fields>
+      <libsource lib="LED" part="WS2812B" description="RGB LED with integrated controller"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFBAB97</tstamp>
+    </comp>
+    <comp ref="C7">
+      <value>100nF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://datasheet.lcsc.com/szlcsc/Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf</datasheet>
+      <fields>
+        <field name="lcsc">C1525</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFCC59A</tstamp>
+    </comp>
+    <comp ref="D7">
+      <value>WS2812B</value>
+      <footprint>LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm</footprint>
+      <datasheet>https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf</datasheet>
+      <fields>
+        <field name="lcsc">C114586</field>
+      </fields>
+      <libsource lib="LED" part="WS2812B" description="RGB LED with integrated controller"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFCC5AA</tstamp>
+    </comp>
+    <comp ref="C8">
+      <value>100nF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://datasheet.lcsc.com/szlcsc/Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf</datasheet>
+      <fields>
+        <field name="lcsc">C1525</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFCC5C0</tstamp>
+    </comp>
+    <comp ref="D8">
+      <value>WS2812B</value>
+      <footprint>LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm</footprint>
+      <datasheet>https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf</datasheet>
+      <fields>
+        <field name="lcsc">C114586</field>
+      </fields>
+      <libsource lib="LED" part="WS2812B" description="RGB LED with integrated controller"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFCC5D0</tstamp>
+    </comp>
+    <comp ref="C9">
+      <value>100nF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://datasheet.lcsc.com/szlcsc/Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf</datasheet>
+      <fields>
+        <field name="lcsc">C1525</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFCC5E6</tstamp>
+    </comp>
+    <comp ref="D9">
+      <value>WS2812B</value>
+      <footprint>LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm</footprint>
+      <datasheet>https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf</datasheet>
+      <fields>
+        <field name="lcsc">C114586</field>
+      </fields>
+      <libsource lib="LED" part="WS2812B" description="RGB LED with integrated controller"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFCC5F6</tstamp>
+    </comp>
+    <comp ref="J1">
+      <value>CONNECT_POWER</value>
+      <footprint>panneau led:CONNECT_POWER</footprint>
+      <fields>
+        <field name="lcsc">NA</field>
+      </fields>
+      <libsource lib="panneau_led" part="CONNECT_POWER" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFD66CC</tstamp>
+    </comp>
+    <comp ref="J2">
+      <value>CONNECT_POWER</value>
+      <footprint>panneau led:CONNECT_POWER</footprint>
+      <fields>
+        <field name="lcsc">NA</field>
+      </fields>
+      <libsource lib="panneau_led" part="CONNECT_POWER" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFEE2AB</tstamp>
+    </comp>
+    <comp ref="J3">
+      <value>CONNECT_POWER</value>
+      <footprint>panneau led:CONNECT_POWER</footprint>
+      <fields>
+        <field name="lcsc">NA</field>
+      </fields>
+      <libsource lib="panneau_led" part="CONNECT_POWER" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFF054B</tstamp>
+    </comp>
+    <comp ref="J4">
+      <value>CONNECT_POWER</value>
+      <footprint>panneau led:CONNECT_POWER</footprint>
+      <fields>
+        <field name="lcsc">NA</field>
+      </fields>
+      <libsource lib="panneau_led" part="CONNECT_POWER" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFF3075</tstamp>
+    </comp>
+    <comp ref="H1">
+      <value>M2.5</value>
+      <footprint>MountingHole:MountingHole_2.7mm_M2.5</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="lcsc">NA</field>
+      </fields>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6002048B</tstamp>
+    </comp>
+    <comp ref="H2">
+      <value>M2.5</value>
+      <footprint>MountingHole:MountingHole_2.7mm_M2.5</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="lcsc">NA</field>
+      </fields>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60027EE4</tstamp>
+    </comp>
+    <comp ref="H3">
+      <value>M2.5</value>
+      <footprint>MountingHole:MountingHole_2.7mm_M2.5</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="lcsc">NA</field>
+      </fields>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60029DA1</tstamp>
+    </comp>
+    <comp ref="H4">
+      <value>M2.5</value>
+      <footprint>MountingHole:MountingHole_2.7mm_M2.5</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="lcsc">NA</field>
+      </fields>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6002BC4A</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Device" part="C_Small">
+      <description>Unpolarized capacitor, small symbol</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C_Small</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="LED" part="WS2812B">
+      <description>RGB LED with integrated controller</description>
+      <docs>https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf</docs>
+      <footprints>
+        <fp>LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">WS2812B</field>
+        <field name="Footprint">LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VDD" type="power_in"/>
+        <pin num="2" name="DOUT" type="output"/>
+        <pin num="3" name="VSS" type="power_in"/>
+        <pin num="4" name="DIN" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="Mechanical" part="MountingHole">
+      <description>Mounting Hole without connection</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>MountingHole*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">H</field>
+        <field name="Value">MountingHole</field>
+      </fields>
+    </libpart>
+    <libpart lib="panneau_led" part="CONNECT_POWER">
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">CONNECT_POWER</field>
+        <field name="Footprint">panneau led:CONNECT_POWER</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+        <pin num="3" name="3" type="passive"/>
+        <pin num="4" name="4" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Device">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Device.lib</uri>
+    </library>
+    <library logical="LED">
+      <uri>C:\Program Files\KiCad\share\kicad\library/LED.lib</uri>
+    </library>
+    <library logical="Mechanical">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Mechanical.lib</uri>
+    </library>
+    <library logical="panneau_led">
+      <uri>G:\Stream-contenu\07-Puissance 4\panneau led\panneau led/panneau_led.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="/DOUT">
+      <node ref="D9" pin="2"/>
+      <node ref="J3" pin="4"/>
+      <node ref="J1" pin="4"/>
+      <node ref="J4" pin="3"/>
+      <node ref="J2" pin="3"/>
+    </net>
+    <net code="2" name="GND">
+      <node ref="C3" pin="2"/>
+      <node ref="J2" pin="2"/>
+      <node ref="C5" pin="2"/>
+      <node ref="J1" pin="2"/>
+      <node ref="D5" pin="3"/>
+      <node ref="J4" pin="2"/>
+      <node ref="D6" pin="3"/>
+      <node ref="C6" pin="2"/>
+      <node ref="D2" pin="3"/>
+      <node ref="C2" pin="2"/>
+      <node ref="D4" pin="3"/>
+      <node ref="D1" pin="3"/>
+      <node ref="C1" pin="2"/>
+      <node ref="C4" pin="2"/>
+      <node ref="D3" pin="3"/>
+      <node ref="C7" pin="2"/>
+      <node ref="D8" pin="3"/>
+      <node ref="C8" pin="2"/>
+      <node ref="D7" pin="3"/>
+      <node ref="D9" pin="3"/>
+      <node ref="C9" pin="2"/>
+      <node ref="J3" pin="2"/>
+    </net>
+    <net code="3" name="Net-(D8-Pad2)">
+      <node ref="D9" pin="4"/>
+      <node ref="D8" pin="2"/>
+    </net>
+    <net code="4" name="Net-(D7-Pad2)">
+      <node ref="D8" pin="4"/>
+      <node ref="D7" pin="2"/>
+    </net>
+    <net code="5" name="/OUT_LINE_2">
+      <node ref="D7" pin="4"/>
+      <node ref="D6" pin="2"/>
+    </net>
+    <net code="6" name="+5V">
+      <node ref="D6" pin="1"/>
+      <node ref="C6" pin="1"/>
+      <node ref="D2" pin="1"/>
+      <node ref="C2" pin="1"/>
+      <node ref="J4" pin="1"/>
+      <node ref="D5" pin="1"/>
+      <node ref="C9" pin="1"/>
+      <node ref="C1" pin="1"/>
+      <node ref="D4" pin="1"/>
+      <node ref="D9" pin="1"/>
+      <node ref="C5" pin="1"/>
+      <node ref="J1" pin="1"/>
+      <node ref="C3" pin="1"/>
+      <node ref="C8" pin="1"/>
+      <node ref="J2" pin="1"/>
+      <node ref="C7" pin="1"/>
+      <node ref="J3" pin="1"/>
+      <node ref="D8" pin="1"/>
+      <node ref="D3" pin="1"/>
+      <node ref="D1" pin="1"/>
+      <node ref="D7" pin="1"/>
+      <node ref="C4" pin="1"/>
+    </net>
+    <net code="7" name="/DIN">
+      <node ref="J3" pin="3"/>
+      <node ref="D1" pin="4"/>
+      <node ref="J1" pin="3"/>
+      <node ref="J2" pin="4"/>
+      <node ref="J4" pin="4"/>
+    </net>
+    <net code="8" name="/OUT_LINE_1">
+      <node ref="D4" pin="4"/>
+      <node ref="D3" pin="2"/>
+    </net>
+    <net code="9" name="Net-(D2-Pad2)">
+      <node ref="D2" pin="2"/>
+      <node ref="D3" pin="4"/>
+    </net>
+    <net code="10" name="Net-(D1-Pad2)">
+      <node ref="D2" pin="4"/>
+      <node ref="D1" pin="2"/>
+    </net>
+    <net code="11" name="Net-(D5-Pad2)">
+      <node ref="D5" pin="2"/>
+      <node ref="D6" pin="4"/>
+    </net>
+    <net code="12" name="Net-(D4-Pad2)">
+      <node ref="D5" pin="4"/>
+      <node ref="D4" pin="2"/>
+    </net>
+  </nets>
+</export>
