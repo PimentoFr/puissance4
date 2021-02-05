@@ -17,6 +17,22 @@ Dans ce projet, l'arborescence est la suivante:
 Les logiciels utilisées sont les suivants:
 - hardware : [Kicad](https://kicad.org/download/)
 
+
+# Electronique
+
+## Panneau led
+
+Les panneaux LEDs sont des panneaux de 90x90mm qui accueille chacun 9 LEDs de type WS2812B.
+Elles sont tous chaînés de la manière suivante:
+
+```
+1 -> 2 -> 3
+ <--------|
+4 -> 5 -> 6
+ <--------|
+7 -> 8 -> 9
+```
+
 # Licence
 
 Le projet est open-source. Tout le monde peut l'utiliser en laissant la référence à son auteur.
