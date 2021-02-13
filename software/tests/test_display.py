@@ -1,4 +1,6 @@
 from puissance4_ws2812.led.display import Display, Direction
+from puissance4_ws2812.fonts.font import Font
+from puissance4_ws2812.fonts.CP437 import CP437_FONT_INFO, CP437_FONT
 import time
 
 def test_getIndexFromPositionDownRight():
@@ -23,6 +25,11 @@ def test_getIndexFromPositionDownLeft():
     assert display._calculateLedIndexFromPosition(9,4) == 12
     assert display._calculateLedIndexFromPosition(11,5) == 17
 
+def test_getScreenMaxXY():
+    display = Display(5, 8, Direction.DOWN_LEFT, stub=True)
+    assert display.getMaxSizeX() == 5 * Display.LEDS_BY_ROW
+    assert display.getMaxSizeY() == 8 * Display.LEDS_BY_COL
+    
 def test_fillScreen():
     display = Display(2, 4, Direction.DOWN_LEFT, stub=False)
     display.begin()
@@ -35,3 +42,10 @@ def test_fillScreen():
                 display.setPixelColor(x, y, r, g, b, 0)
                 display.show()
                 time.sleep(0.1)
+
+# def test_printChar():
+#     display = Display(2, 4, Direction.DOWN_LEFT, stub=False)
+#     display.begin()
+#     font = Font(display, CP437_FONT, CP437_FONT_INFO)
+#     font.printChar('A', 0, 0, 255, 0, 0)
+#     display.render()

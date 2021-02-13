@@ -24,8 +24,15 @@ class WS2812_Stub():
                  invert:bool=False,
                  channel:int = 0):
         self.log = logging.getLogger('WS2812_Stub')
+        self.log.setLevel(logging.INFO)
         self.log.info("WS2812_Stub created")
     
     def begin(self):
-        self.log("WS2812_Stub begin")
+        self.log.info("WS2812_Stub begin")
     
+    def setPixelColor(self, n, color):
+        self.log.info("(n: {:d}) = ({:08x})".format(n, color))
+        pass
+    
+    def show(self):
+        pass

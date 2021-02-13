@@ -14,7 +14,9 @@ class Direction():
     LEFT_UP = 7
 
 class Display():
-    LEDS_BY_PANE = 9
+    LEDS_BY_COL = 3
+    LEDS_BY_ROW = 3
+    LEDS_BY_PANE = LEDS_BY_COL * LEDS_BY_ROW
     
     def __init__(self,
                  col_pane: int,
@@ -45,13 +47,19 @@ class Display():
             self.strip = WS2812(self.count_led, self.pin, self.freq, self.dma, self.invert, self.brightness, self.channel)
         
         self.log = logging.getLogger('Display')
-        self.log.info("Display set %d x %d".format(self.col_pane, self.row_pane))
+        self.log.info("Display set {:d} x {:d}".format(self.col_pane, self.row_pane))
 
     def begin(self):
         self.strip.begin()
 
     def show(self):
         self.strip.show()
+        
+    def getMaxSizeX(self):
+        return self.col_pane * Display.LEDS_BY_COL
+
+    def getMaxSizeY(self):
+        return self.row_pane * Display.LEDS_BY_ROW
         
     def _calculateLedIndexFromPosition(self, x, y):
         index = -1
@@ -63,11 +71,8 @@ class Display():
             else:
                 index = (x % 3) + (y % 3)*3 + (self.row_pane - 1 - math.floor(y / 3)) * self.LEDS_BY_PANE + col_pane_offset
         elif(self.direction == Direction.DOWN_LEFT):
-            print("x:{:d}, y{:d}".format(x, y))
             dir_down = True if (math.floor(x / 3) % 2 == self.col_pane % 2) else False
-            print("dir {:d}".format(dir_down))
             col_pane_offset = (self.col_pane - 1 - math.floor(x/3)) * self.row_pane * self.LEDS_BY_PANE
-            print("offset {:d}".format(col_pane_offset))
             if dir_down:
                 index = (x % 3) + (y % 3) * 3 + (self.row_pane - 1 - math.floor(y/3)) * self.LEDS_BY_PANE + col_pane_offset
             else:
@@ -85,10 +90,21 @@ class Display():
                       green: int,
                       blue: int,
                       white: int):
-        start = time.time_ns()
+        
+        if(x > self.col_pane*self.LEDS_BY_PANE or y > self.row_pane * self.LEDS_BY_PANE):
+            self.log.error("(x: {:d}, y: {:d}) pixel is out of screen.".format(x, y))
+            return
+        
+        # start = time.time_ns()
         n = self._calculateLedIndexFromPosition(x, y)
-        print("Compute {:d}".format(time.time_ns() - start))
+        # print("Compute {:d}".format(time.time_ns() - start))
         self.strip.setPixelColor(n, Color(red, green, blue, white))
     
     def render(self):
         self.strip.show()
+        
+    def reset(self):
+        for x in range(self.getMaxSizeX()):
+            for y in range(self.getMaxSizeY()):
+                self.setPixelColor(x, y, 0, 0, 0, 0)
+        self.show()
