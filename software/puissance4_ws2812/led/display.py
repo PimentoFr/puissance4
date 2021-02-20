@@ -1,17 +1,9 @@
 from rpi_ws281x import Color
-from puissance4_ws2812.led.ws2812 import WS2812, WS2812_Stub
+from puissance4_ws2812.led.ws2812 import WS2812, WS2812_Stub, WS2812_WebSocket
+from puissance4_ws2812.led.direction import Direction
 import logging
 import math
 import time
-class Direction():
-    DOWN_LEFT = 0
-    DOWN_RIGHT = 1
-    UP_LEFT = 2
-    UP_RIGHT = 3
-    RIGHT_DOWN = 4
-    RIGHT_UP = 5
-    LEFT_DOWN = 6
-    LEFT_UP = 7
 
 class Display():
     LEDS_BY_COL = 3

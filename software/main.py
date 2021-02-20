@@ -1,4 +1,5 @@
-from puissance4_ws2812.led.display import Display, Direction
+from puissance4_ws2812.led.display import Display
+from puissance4_ws2812.led.direction import Direction
 from puissance4_ws2812.fonts.font import Font
 from puissance4_ws2812.fonts.CP437 import CP437_FONT_INFO, CP437_FONT
 from puissance4_ws2812.widgets.engine import DisplayEngine
