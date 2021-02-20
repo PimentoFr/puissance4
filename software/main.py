@@ -4,6 +4,7 @@ from puissance4_ws2812.fonts.CP437 import CP437_FONT_INFO, CP437_FONT
 from puissance4_ws2812.widgets.engine import DisplayEngine
 from puissance4_ws2812.widgets.text import WidgetText
 from puissance4_ws2812.widgets.text_scroll import WidgetTextScroll, WidgetTextScrollDirection
+from puissance4_ws2812.widgets.rect_fill import WidgetRectFill
 import time
 import logging
 
