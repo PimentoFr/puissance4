@@ -5,12 +5,18 @@ import logging
 import math
 import time
 
+class DisplayStub():
+    ONLY_HARDWARE = 1
+    ONLY_STUB = 2
+    HARDWARE_AND_STUB = 3
+
 class Display():
     LEDS_BY_COL = 3
     LEDS_BY_ROW = 3
     LEDS_BY_PANE = LEDS_BY_COL * LEDS_BY_ROW
     
     begun = False
+    strip = None
     
     def __init__(self,
                  col_pane: int,
@@ -22,7 +28,7 @@ class Display():
                  brightness: int = 127,
                  invert:bool=False,
                  channel:int = 0,
-                 stub:bool = False):
+                 stub: DisplayStub = DisplayStub.ONLY_HARDWARE):
         
         self.col_pane = col_pane
         self.row_pane = row_pane
@@ -35,8 +41,10 @@ class Display():
         self.invert = invert
         self.channel = channel
         
-        if stub:
-            self.strip = WS2812_Stub(self.count_led, self.pin, self.freq, self.dma, self.invert, self.brightness, self.channel)
+        if stub == DisplayStub.ONLY_STUB:
+            self.strip = WS2812_Stub(self.col_pane, self.row_pane, self.direction, self.count_led, self.pin, self.freq, self.dma, self.invert, self.brightness, self.channel)
+        elif stub == DisplayStub.HARDWARE_AND_STUB:
+            self.strip = WS2812_WebSocket(self.col_pane, self.row_pane, self.direction, self.count_led, self.pin, self.freq, self.dma, self.invert, self.brightness, self.channel)
         else:
             self.strip = WS2812(self.count_led, self.pin, self.freq, self.dma, self.invert, self.brightness, self.channel)
         
@@ -51,6 +59,9 @@ class Display():
         if not self.begun:
             raise Exception("Display not begun")
         self.strip.show()
+        
+    def getStrip(self):
+        return self.strip
         
     def getMaxSizeX(self):
         return self.col_pane * Display.LEDS_BY_COL

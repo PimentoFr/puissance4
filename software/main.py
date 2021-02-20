@@ -1,4 +1,4 @@
-from puissance4_ws2812.led.display import Display
+from puissance4_ws2812.led.display import Display, DisplayStub
 from puissance4_ws2812.led.direction import Direction
 from puissance4_ws2812.fonts.font import Font
 from puissance4_ws2812.fonts.CP437 import CP437_FONT_INFO, CP437_FONT
@@ -10,6 +10,7 @@ from puissance4_ws2812.widgets.line import WidgetLine
 from puissance4_ws2812.widgets.disc import WidgetDisc
 import time
 import logging
+import asyncio
 
 logging.basicConfig(level=logging.DEBUG)
 log = logging.getLogger('Main')
@@ -18,7 +19,7 @@ log = logging.getLogger('Main')
 
 def main():
     log.info("Start Main")
-    display = Display(2, 4, Direction.DOWN_LEFT, stub=False)
+    display = Display(2, 4, Direction.DOWN_LEFT, stub=True)
     display.begin()
     font = Font(display, CP437_FONT, CP437_FONT_INFO)
     
@@ -30,13 +31,13 @@ def main():
     log.info("End Main")
     
 def test_DisplayEngine():
-    display = Display(2, 4, Direction.DOWN_LEFT, stub=False)
+    display = Display(2, 4, Direction.DOWN_LEFT, brightness=30, stub=DisplayStub.HARDWARE_AND_STUB)
     display.begin()
-    displayEngine = DisplayEngine(display, frameRate=30)
+    displayEngine = DisplayEngine(display, frameRate=10)
     font = Font(display, CP437_FONT, CP437_FONT_INFO)
     #widget_text = WidgetText(display, "A", 0, 0, font, 255, 0, 0)
     #widget_text_2 = WidgetText(display, "BC", -5, 2, font, 0, 255, 0)
-    widget_scroll_text = WidgetTextScroll(display, "Vous etes sur la Pimento TV !", 0, 1, 6, 8, font, 255, 0, 0, 0.1, WidgetTextScrollDirection.RIGHT_TO_LEFT)
+    widget_scroll_text = WidgetTextScroll(display, "Vous etes sur la Pimento TV !", 0, 1, 6, 8, font, 255, 0, 0, 0.2, WidgetTextScrollDirection.RIGHT_TO_LEFT)
     line = WidgetLine(display, 0, 0, 5, 0, 0, 255, 0)
     line2 = WidgetLine(display, 0, 10, 5, 10, 0, 255, 0)
     # rect = WidgetRectFill(display, 1, 9, 3, 2, 0, 0, 255)
@@ -48,7 +49,13 @@ def test_DisplayEngine():
     #displayEngine.addWidget(widget_text_2, "text2")
     # displayEngine.addWidget(rect, "widgetRect")
     #displayEngine.addWidget(line, "widgetLine")
+    loop = asyncio.get_event_loop()
+    display.getStrip().setEventLoop(loop)
+
+    asyncio.get_event_loop().run_until_complete(display.getStrip().getWebServer())
+    asyncio.get_event_loop().run_forever()
     
 if __name__ == "__main__":
     # execute only if run as a script
     test_DisplayEngine()
+    

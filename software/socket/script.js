@@ -1,113 +1,136 @@
 // Vanilla js
-// Vanilla js
 var ns = 'http://www.w3.org/2000/svg'
-var div = document.getElementById('drawing') 
-var svg = document.createElementNS(ns, 'svg')
-svg.setAttributeNS(null, 'width', '100%')
-svg.setAttributeNS(null, 'height', '500px')
-div.appendChild(svg)
-//svg.appendChild(rect)
-
-x_max = 21
-y_max = 21
-ball_size = 20
-dots = []
-
-
-for(y = 0; y < y_max; y++) {
-    for(x = 0; x< x_max; x++) {
-        c = document.createElementNS(ns, 'circle')
-        c.setAttributeNS(null, 'r', ball_size/2)
-        c.setAttributeNS(null, 'fill', '#f06')
-        c.setAttributeNS(null, 'cx', (x+1)*ball_size)
-        c.setAttributeNS(null, 'cy', (y+1)*ball_size)
-        svg.appendChild(c)
-        dots.push(c)
-    }
+var div = null;
+var svg = null;
+//Settings
+x_pane = 2;
+y_pane = 4;
+direction='down_left';
+x_max = x_pane * 3;
+y_max = y_pane * 3;
+ball_size = 50;
+showDotIndex = true;
+//List of dots
+dots=[];
+drawing = false
+initialised = false
+function ColorForLong(l) {
+    return Color((l >> 16) & 255, (l>>8) & 255, l & 255);
 }
 
 function Color(r,g,b) {
-    return "#" + (r % 256).toString(16) + (g % 256).toString(16) + (b % 256).toString(16)
+    return "#" + ('0' + (r & 0xFF).toString(16)).slice(-2)
+        + ('0' + (g & 0xFF).toString(16)).slice(-2)
+        + ('0' + (b & 0xFF).toString(16)).slice(-2)
 }
 
-function wheel(pos) {
-    if (pos < 85) {
-        return Color(pos * 3, 255 - pos * 3, 0)
+function buildPlates(x_pane, y_pane, direction) {
+    var dx = 0, dy = 0;
+    var sx = 0, sy = 0;
+    var first_x = false;
+    div = document.getElementById('drawing') 
+    svg = document.createElementNS(ns, 'svg')
+    svg.setAttributeNS(null, 'width', '100%')
+    svg.setAttributeNS(null, 'height', '700px')
+    div.appendChild(svg)
+    switch(direction) {
+        case 0:
+            dx = -1;
+            dy = 1;
+            sx = (x_pane - 1);
+            sy = 0;
+            first_x = false;
+            break;
+        default:
+            console.error("Bad direction, get: ", direction);
+            return;
     }
-    else if(pos < 170) {
-        pos -= 85
-        return Color(255 - pos * 3, 0, pos * 3)
-    }
-    else {
-        pos -= 170
-        return Color(0, pos * 3, 255 - pos * 3)
-    }
-}
-
-function sleep (time) {
-    return new Promise((resolve) => setTimeout(resolve, time));
-}
-
-function ite_rainbow() {
-}
-
-const timer = ms => new Promise(res => setTimeout(res, ms))
-async function rainbow(iterations) {
-    for(j=0; j < 256 * iterations; j++) {
-        for(i = 0; i < x_max * y_max; i++)
-        {
-            dots[i].setAttributeNS(null, 'fill', wheel((i+j) & 255))
+    console.log("draw plates", x_pane, y_pane, direction)
+    for(i = 0; i < x_pane*y_pane; i++) {
+        if(!first_x && i > 0 && (i%y_pane) == 0) {
+            sx += dx;
+            dy = -dy;
+            sy += dy;
         }
-        await timer(30); // then the created Promise can be awaited
+        if(first_x && i > 0 && (i%x_pane) == 0) {
+            sy += dy;
+            dx = -dx;
+            sx += sx;
+        }
+        buildPlate(i*9, sx*3+1, sy*3+1);
+        if(first_x) {
+            sx += dx;
+        } else {
+            sy += dy;
+        }
     }
 }
 
+/**
+ * This function create LED dot for a tile
+ * 
+ * @param {*} n First index of the first led of this new tile
+ * @param {*} x_offset X offset for the first led position
+ * @param {*} y_offset Y offset for the first led position
+ */
+function buildPlate(n, x_offset, y_offset) {
+    for(var y = 0; y < 3; y++) {
+        for(var x = 0; x < 3; x++) {
+            dotId = n + x + y*3;
+            c = document.createElementNS(ns, 'circle')
+            c.setAttributeNS(null, 'r', ball_size/2)
+            c.setAttributeNS(null, 'fill', '#DAA')
+            c.setAttributeNS(null, 'cx', (x_offset + x)*ball_size)
+            c.setAttributeNS(null, 'cy', (y_offset + y)*ball_size)
+            svg.appendChild(c)
+            dots.push(c);
+            if(showDotIndex) {
+                t = document.createElementNS(ns, 'text');
+                t.setAttributeNS(null, "x", (x_offset + x)*ball_size);
+                t.setAttributeNS(null, "y", (y_offset + y)*ball_size);
+                t.setAttributeNS(null, "font-size", 8);
+                t.setAttributeNS(null, "fill", "#FFF")
+                t.setAttributeNS(null, "text-anchor", "middle")
+                t.textContent = ''+dotId;
+                svg.appendChild(t)
 
-async function load () { // We need to wrap the loop into an async function for this to work
- 
-  for (var i = 0; i < 3; i++) {
-    console.log(i);
-    await timer(3000); // then the created Promise can be awaited
-  }
+            }
+        }
+    }
 }
 
-//load();
-
-
-
-rainbow(10);
-
-// rect.setAttributeNS(null, 'width', 100)
-// rect.setAttributeNS(null, 'height', 100)
-// rect.setAttributeNS(null, 'fill', '#f06')
-
-
-
-
-
-
-
-var minus = document.querySelector('.minus'),
-plus = document.querySelector('.plus'),
-value = document.querySelector('.value'),
-users = document.querySelector('.users'),
-websocket = new WebSocket("ws://192.168.1.74:6789/");
-minus.onclick = function (event) {
-websocket.send(JSON.stringify({action: 'minus'}));
+function updatePlatesWithBuffer(buffer) {
+    for(var i = 0; i < x_max * y_max; i++) {
+        c = ColorForLong(buffer[i])
+        dots[i].setAttributeNS(null, 'fill', c)  
+    }
 }
-plus.onclick = function (event) {
-websocket.send(JSON.stringify({action: 'plus'}));
-}
+
+//buildPlates(x_pane, y_pane, direction)
+
+var websocket = new WebSocket("ws://192.168.1.74:6789/");
 websocket.onmessage = function (event) {
 data = JSON.parse(event.data);
+console.log("data", data)
 switch (data.type) {
-    case 'state':
-        value.textContent = data.value;
+    case 'screen':
+        if (drawing == false && initialised == true) {
+            drawing = true;
+            updatePlatesWithBuffer(data.screen)
+            drawing = false;
+        } else {
+            console.log("Already drawing")
+        }
         break;
-    case 'users':
-        users.textContent = (
-            data.count.toString() + " user" +
-            (data.count == 1 ? "" : "s"));
+    case 'settings':
+        initialised = false
+        dots = []
+        if(svg != null) {
+            div.removeChild(svg)   
+        }
+        svg = null
+        buildPlates(data.settings.col, data.settings.row, data.settings.direction)
+        initialised = true
         break;
     default:
         console.error(

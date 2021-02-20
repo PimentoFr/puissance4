@@ -3,51 +3,9 @@
     <head>
         <title>WebSocket demo</title>
         <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
-        <style type="text/css">
-            body {
-                font-family: "Courier New", sans-serif;
-                text-align: center;
-            }
-            .buttons {
-                font-size: 4em;
-                display: flex;
-                justify-content: center;
-            }
-            .button, .value {
-                line-height: 1;
-                padding: 2rem;
-                margin: 2rem;
-                border: medium solid;
-                min-height: 1em;
-                min-width: 1em;
-            }
-            .button {
-                cursor: pointer;
-                user-select: none;
-            }
-            .minus {
-                color: red;
-            }
-            .plus {
-                color: green;
-            }
-            .value {
-                min-width: 2em;
-            }
-            .state {
-                font-size: 2em;
-            }
-        </style>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div class="buttons">
-            <div class="minus button">-</div>
-            <div class="value">?</div>
-            <div class="plus button">+</div>
-        </div>
-        <div class="state">
-            <span class="users">?</span> online
-        </div>
         <div id="drawing"></div>
         <script type="text/javascript" src="script.js">
         </script>
