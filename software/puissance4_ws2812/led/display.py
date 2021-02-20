@@ -18,6 +18,8 @@ class Display():
     LEDS_BY_ROW = 3
     LEDS_BY_PANE = LEDS_BY_COL * LEDS_BY_ROW
     
+    begun = False
+    
     def __init__(self,
                  col_pane: int,
                  row_pane: int,
@@ -51,8 +53,11 @@ class Display():
 
     def begin(self):
         self.strip.begin()
-
+        self.begun = True
+        
     def show(self):
+        if not self.begun:
+            raise Exception("Display not begun")
         self.strip.show()
         
     def getMaxSizeX(self):
@@ -91,20 +96,17 @@ class Display():
                       blue: int,
                       white: int):
         
-        if(x > self.col_pane*self.LEDS_BY_PANE or y > self.row_pane * self.LEDS_BY_PANE):
-            self.log.error("(x: {:d}, y: {:d}) pixel is out of screen.".format(x, y))
+        if(x > self.col_pane*self.LEDS_BY_PANE or x < 0 or y > self.row_pane * self.LEDS_BY_PANE or y < 0):
             return
-        
-        # start = time.time_ns()
         n = self._calculateLedIndexFromPosition(x, y)
-        # print("Compute {:d}".format(time.time_ns() - start))
         self.strip.setPixelColor(n, Color(red, green, blue, white))
     
     def render(self):
         self.strip.show()
         
-    def reset(self):
+    def reset(self, show=False):
         for x in range(self.getMaxSizeX()):
             for y in range(self.getMaxSizeY()):
                 self.setPixelColor(x, y, 0, 0, 0, 0)
-        self.show()
+        if show:
+            self.show()
