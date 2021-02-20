@@ -92,17 +92,16 @@ class WidgetTextScroll(Widget):
         #Check if a new tick is required
         if elapsedTime >= self.nextTickPeriod:
             print("New tick")
+            self.lastTick = time.time()
             if self.state == WidgetTextScrollStates.SCROLLING:
                 print("Scrolling")
-                self._computeScrollX(1)#math.floor(elapsedTime / self.tick))
+                self._computeScrollX(math.floor(elapsedTime / self.tick))
                 if self.isOutScreen(self._virtual_x, self._virtual_y):
                     self.state = WidgetTextScrollStates.WAITING_OUT_SCREEN
-                    self.lastTick = time.time()
                     self.nextTickPeriod = 10 * self.tick
             elif self.state == WidgetTextScrollStates.WAITING_OUT_SCREEN:
                 print("Waiting out screen")
                 self.state = WidgetTextScrollStates.SCROLLING
-                self.lastTick = time.time()
                 self.nextTickPeriod = self.tick
                 self.resetScrollText()
             
