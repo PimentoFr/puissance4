@@ -6,6 +6,7 @@ from puissance4_ws2812.widgets.text import WidgetText
 from puissance4_ws2812.widgets.text_scroll import WidgetTextScroll, WidgetTextScrollDirection
 from puissance4_ws2812.widgets.rect_fill import WidgetRectFill
 from puissance4_ws2812.widgets.line import WidgetLine
+from puissance4_ws2812.widgets.disc import WidgetDisc
 import time
 import logging
 
@@ -30,18 +31,22 @@ def main():
 def test_DisplayEngine():
     display = Display(2, 4, Direction.DOWN_LEFT, stub=False)
     display.begin()
-    displayEngine = DisplayEngine(display, frameRate=10)
+    displayEngine = DisplayEngine(display, frameRate=30)
     font = Font(display, CP437_FONT, CP437_FONT_INFO)
     #widget_text = WidgetText(display, "A", 0, 0, font, 255, 0, 0)
     #widget_text_2 = WidgetText(display, "BC", -5, 2, font, 0, 255, 0)
-    widget_scroll_text = WidgetTextScroll(display, "HELLO WORLD", 1, 0, 4, 8, font, 255, 0, 0, 0.2, WidgetTextScrollDirection.RIGHT_TO_LEFT)
-    rect = WidgetRectFill(display, 1, 9, 3, 2, 0, 0, 255)
-    line = WidgetLine(display, 0, 8, 5, 8, 0, 255, 0)
+    widget_scroll_text = WidgetTextScroll(display, "Vous etes sur la Pimento TV !", 0, 1, 6, 8, font, 255, 0, 0, 0.1, WidgetTextScrollDirection.RIGHT_TO_LEFT)
+    line = WidgetLine(display, 0, 0, 5, 0, 0, 255, 0)
+    line2 = WidgetLine(display, 0, 10, 5, 10, 0, 255, 0)
+    # rect = WidgetRectFill(display, 1, 9, 3, 2, 0, 0, 255)
+    # disc = WidgetDisc(display, 2, 5, 4, 0, 255, 0)
     #displayEngine.addWidget(widget_text, "text")
-    #displayEngine.addWidget(widget_text_2, "text2")
-    displayEngine.addWidget(widget_scroll_text, "widgetScroll")
-    displayEngine.addWidget(rect, "widgetRect")
     displayEngine.addWidget(line, "widgetLine")
+    displayEngine.addWidget(line2, "widgetLine2")
+    displayEngine.addWidget(widget_scroll_text, "widgetScroll")
+    #displayEngine.addWidget(widget_text_2, "text2")
+    # displayEngine.addWidget(rect, "widgetRect")
+    #displayEngine.addWidget(line, "widgetLine")
     
 if __name__ == "__main__":
     # execute only if run as a script
